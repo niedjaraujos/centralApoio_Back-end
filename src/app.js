@@ -16,6 +16,10 @@ app.use(
   }),
 );
 
+app.get("/", (req, res) => {
+  res.send("<h1>Central Apoio!</h1>");
+});
+
 app.use("/abrigos", abrigos);
 app.use("/necessidades", necessidades);
 app.use("/doacoes", doacoes);
