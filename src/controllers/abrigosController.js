@@ -19,7 +19,8 @@ const listarAbrigos = async (req, res) => {
 
     res.status(200).json(resultado.rows);
   } catch (error) {
-    res.status(500).json({ erro: "Erro ao listar abrigos" });
+    console.error("ERRO SQL:", error);
+    res.status(500).json({ erro: error.message });
   }
 };
 
