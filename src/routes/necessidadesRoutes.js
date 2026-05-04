@@ -1,10 +1,16 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const controller = require("../controllers/necessidadesController");
 
-router.get("/", controller.listarNecessidades);
-router.post("/", controller.criarNecessidade);
-router.put("/:id", controller.atualizarNecessidade);
-router.delete("/:id", controller.deletarNecessidade);
+import {
+  listarNecessidades,
+  criarNecessidade,
+  atualizarNecessidade,
+  deletarNecessidade,
+} from "../controllers/necessidadesController.js";
 
-module.exports = router;
+router.get("/", listarNecessidades);
+router.post("/", criarNecessidade);
+router.put("/:id", atualizarNecessidade);
+router.delete("/:id", deletarNecessidade);
+
+export default router;

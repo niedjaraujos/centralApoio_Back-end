@@ -1,4 +1,4 @@
-const pool = require("../config/db");
+import pool from "../config/db.js";
 
 // LISTAR
 const listarVoluntarios = async (req, res) => {
@@ -95,7 +95,7 @@ const deletarVoluntario = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   listarVoluntarios,
   criarVoluntario,
   atualizarVoluntario,

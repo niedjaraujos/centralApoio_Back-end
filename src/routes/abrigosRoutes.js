@@ -1,10 +1,18 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const controller = require("../controllers/abrigosController");
 
-router.get("/", controller.listarAbrigos);
-router.post("/", controller.criarAbrigo);
-router.put("/:id", controller.atualizarAbrigo);
-router.delete("/:id", controller.deletarAbrigo);
+import {
+  listarAbrigos,
+  criarAbrigo,
+  atualizarAbrigo,
+  deletarAbrigo,
+} from "../controllers/abrigosController.js";
 
-module.exports = router;
+import { autenticarUsuario } from "../middlewares/authMiddleware.js";
+
+router.get("/", listarAbrigos);
+router.post("/", criarAbrigo);
+router.put("/:id", atualizarAbrigo);
+router.delete("/:id", autenticarUsuario, deletarAbrigo);
+
+export default router;

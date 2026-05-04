@@ -1,4 +1,4 @@
-const pool = require("../config/db");
+import pool from "../config/db.js";
 
 // LISTAR necessidades (com filtro por abrigo)
 const listarNecessidades = async (req, res) => {
@@ -108,7 +108,7 @@ const deletarNecessidade = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   listarNecessidades,
   criarNecessidade,
   atualizarNecessidade,

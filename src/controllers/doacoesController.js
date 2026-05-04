@@ -1,4 +1,4 @@
-const pool = require("../config/db");
+import pool from "../config/db.js";
 
 // LISTAR
 const listarDoacoes = async (req, res) => {
@@ -45,7 +45,7 @@ const criarDoacao = async (req, res) => {
   }
 };
 
-// ATUALIZAR STATUS (muito útil no seu app)
+// ATUALIZAR STATUS
 const atualizarDoacao = async (req, res) => {
   try {
     const { id } = req.params;
@@ -88,9 +88,4 @@ const deletarDoacao = async (req, res) => {
   }
 };
 
-module.exports = {
-  listarDoacoes,
-  criarDoacao,
-  atualizarDoacao,
-  deletarDoacao,
-};
+export { listarDoacoes, criarDoacao, atualizarDoacao, deletarDoacao };

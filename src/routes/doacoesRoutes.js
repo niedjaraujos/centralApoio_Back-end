@@ -1,10 +1,16 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const controller = require("../controllers/doacoesController");
 
-router.get("/", controller.listarDoacoes);
-router.post("/", controller.criarDoacao);
-router.put("/:id", controller.atualizarDoacao);
-router.delete("/:id", controller.deletarDoacao);
+import {
+  listarDoacoes,
+  criarDoacao,
+  atualizarDoacao,
+  deletarDoacao,
+} from "../controllers/doacoesController.js";
 
-module.exports = router;
+router.get("/", listarDoacoes);
+router.post("/", criarDoacao);
+router.put("/:id", atualizarDoacao);
+router.delete("/:id", deletarDoacao);
+
+export default router;

@@ -1,10 +1,16 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const controller = require("../controllers/voluntariosController");
 
-router.get("/", controller.listarVoluntarios);
-router.post("/", controller.criarVoluntario);
-router.put("/:id", controller.atualizarVoluntario);
-router.delete("/:id", controller.deletarVoluntario);
+import {
+  listarVoluntarios,
+  criarVoluntario,
+  atualizarVoluntario,
+  deletarVoluntario,
+} from "../controllers/voluntariosController.js";
 
-module.exports = router;
+router.get("/", listarVoluntarios);
+router.post("/", criarVoluntario);
+router.put("/:id", atualizarVoluntario);
+router.delete("/:id", deletarVoluntario);
+
+export default router;

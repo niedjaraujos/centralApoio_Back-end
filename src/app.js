@@ -1,13 +1,12 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+import express from "express";
+import cors from "cors";
 
 const app = express();
 
-const abrigos = require("./routes/abrigosRoutes");
-const doacoes = require("./routes/doacoesRoutes");
-const necessidades = require("./routes/necessidadesRoutes");
-const voluntarios = require("./routes/voluntariosRoutes");
+import abrigos from "./routes/abrigosRoutes.js";
+import doacoes from "./routes/doacoesRoutes.js";
+import necessidades from "./routes/necessidadesRoutes.js";
+import voluntarios from "./routes/voluntariosRoutes.js";
 
 app.use(express.json());
 app.use(
@@ -25,4 +24,4 @@ app.use("/necessidades", necessidades);
 app.use("/doacoes", doacoes);
 app.use("/voluntarios", voluntarios);
 
-module.exports = app;
+export default app;
