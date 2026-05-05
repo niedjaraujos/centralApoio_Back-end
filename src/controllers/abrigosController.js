@@ -72,6 +72,7 @@ const criarAbrigo = async (req, res) => {
 
     res.status(201).json(resultado.rows[0]);
   } catch (error) {
+    console.error(error.response?.data || error.message);
     res.status(400).json({ erro: "Erro ao criar abrigo" });
   }
 };
